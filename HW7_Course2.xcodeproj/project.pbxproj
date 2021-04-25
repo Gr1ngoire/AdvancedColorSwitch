@@ -13,6 +13,7 @@
 		84196EA32634A817008EAD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84196EA12634A817008EAD3E /* Main.storyboard */; };
 		84196EA52634A818008EAD3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84196EA42634A818008EAD3E /* Assets.xcassets */; };
 		84196EA82634A818008EAD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84196EA62634A818008EAD3E /* LaunchScreen.storyboard */; };
+		84196EB12635504B008EAD3E /* SwitchColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84196EB02635504B008EAD3E /* SwitchColorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		84196EA42634A818008EAD3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84196EA72634A818008EAD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84196EA92634A818008EAD3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84196EB02635504B008EAD3E /* SwitchColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchColorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				84196EA42634A818008EAD3E /* Assets.xcassets */,
 				84196EA62634A818008EAD3E /* LaunchScreen.storyboard */,
 				84196EA92634A818008EAD3E /* Info.plist */,
+				84196EB02635504B008EAD3E /* SwitchColorController.swift */,
 			);
 			path = HW7_Course2;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 				84196EA02634A817008EAD3E /* ViewController.swift in Sources */,
 				84196E9C2634A817008EAD3E /* AppDelegate.swift in Sources */,
 				84196E9E2634A817008EAD3E /* SceneDelegate.swift in Sources */,
+				84196EB12635504B008EAD3E /* SwitchColorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
