@@ -74,7 +74,6 @@ class SwitchColorController: UIViewController, UITextFieldDelegate {
             var alpha: CGFloat = 0
                         
             colorOutput.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            print("\(red)   \(green)   \(blue)  \(alpha)")
             
             delegate?.execution(redPar: red, greenPar: green, bluePar: blue, alphaPar: alpha)
             dismiss(animated: true)
