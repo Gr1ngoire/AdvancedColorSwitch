@@ -7,8 +7,15 @@
 
 import UIKit
 
-class SwitchColorController: UIViewController, UITextFieldDelegate {
+protocol PassingTheColor {
+    func execution(redPar: CGFloat, greenPar: CGFloat, bluePar: CGFloat, alphaPar: CGFloat)
+}
 
+class SwitchColorController: UIViewController, UITextFieldDelegate {
+    
+    // PassingTheColor delegate
+    var delegate: PassingTheColor?
+    
     // color View
     @IBOutlet weak var colorOutput: UIView!
     
@@ -50,15 +57,29 @@ class SwitchColorController: UIViewController, UITextFieldDelegate {
         greenTextField.addDoneButtonOnKeyboard()
         blueTextField.addDoneButtonOnKeyboard()
         
+        // delegetion for Done button on keyboard
         self.redTextField.delegate = self
         self.greenTextField.delegate = self
         self.blueTextField.delegate = self
     }
     
     
-
+    // done button sending color to the first screen
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true)
+        if  colorOutput.backgroundColor != nil {
+            
+            var red: CGFloat = 0
+            var green: CGFloat = 0
+            var blue: CGFloat = 0
+            var alpha: CGFloat = 0
+                        
+            colorOutput.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            print("\(red)   \(green)   \(blue)  \(alpha)")
+            
+            delegate?.execution(redPar: red, greenPar: green, bluePar: blue, alphaPar: alpha)
+            dismiss(animated: true)
+        }
+        
     }
     
     
@@ -98,7 +119,7 @@ class SwitchColorController: UIViewController, UITextFieldDelegate {
             }
             
         } else {
-            let alert = UIAlertController(title: "Ooops!", message: "Please, enter proper format", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Ooops!", message: "Please, enter the value properly", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -106,6 +127,8 @@ class SwitchColorController: UIViewController, UITextFieldDelegate {
     
     
 }
+
+// switch value and color extension
 extension SwitchColorController {
     func changeTextFieldsAndLabelValue(slider: UISlider, label: UILabel, textField: UITextField) {
         let sliderValue = String(round(slider.value * 100) / 100)
@@ -121,6 +144,7 @@ extension SwitchColorController {
     }
 }
 
+// Done button on keyboard pressed => keyboard hides
 extension SwitchColorController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -128,7 +152,7 @@ extension SwitchColorController {
     
 }
 
-
+// add Done buton function extension
 extension UITextField {
     func addDoneButtonOnKeyboard() {
         let doneToolBar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width,  height: 50))

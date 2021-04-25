@@ -7,20 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, PassingTheColor {
+    
+    // color view outlet
     @IBOutlet var mainView: UIView!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    // Delegation method
+    func execution(redPar: CGFloat, greenPar: CGFloat, bluePar: CGFloat, alphaPar: CGFloat) {
+        mainView.backgroundColor = UIColor(red: redPar, green: greenPar, blue: bluePar, alpha: alphaPar)
     }
     
+    // passing the color
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "sendColor" else { return }
-        let segueData = segue.destination as! SwitchColorController
-        segueData.viewColor = mainView.backgroundColor
+        if segue.identifier == "sendColor" {
+            let segueData = segue.destination as! SwitchColorController
+            segueData.delegate = self
+            segueData.viewColor = mainView.backgroundColor
+        }
     }
 
 }
